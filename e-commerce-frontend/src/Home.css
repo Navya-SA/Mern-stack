@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bck-home {
+    height: 100vh;
+    width: 100%;
+    background-color:#e3eff2;
+    background: linear-gradient(90deg, #eadff7 0%, #dbf5fc 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.home-title {
+    padding-top: 25px;
+    font-size: 55px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #440c67;
+}
+.home-button
+{
+    color: #460b66;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-size: 17px;
+    transition: 0.3s ease;
+    transform: translateY(-3px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    flex-grow: 1; 
+
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    
+  
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+.home-text {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #3e1d6a;
+}
+
+.home-nav {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.home-nav li a {
+    text-decoration: none;
+    color: #481d69;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.home-nav li a:hover {
+    background-color: #ffffff;
+    color: #3b1f5c;
+    transform: translateY(-3px);
+}
+
+.booking-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    width: 100%;
+    flex-grow: 1; 
+
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    
+  
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+.setting-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px); 
+}
+.counter-container
+{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.counter-text{
+    font-size: 18px;
+    color: #09189d;
+}
+.plus-button, .minus-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    color: #09189d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

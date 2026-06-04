@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile-page {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #f5f3ff 0%,
+        #ede9fe 50%,
+        #ddd6fe 100%
+    );
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 850px;
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #a855f7
+    );
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-header h2 {
+    color: #1e293b;
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.profile-header span {
+    color: #64748b;
+    font-size: 14px;
+}
+.edit-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #7c3aed;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-btn:hover {
+    background: #6d28d9;
+}
+
+.profile-details {
+    margin-top: 30px;
+}
+
+.detail-item {
+    margin-bottom: 24px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item p {
+    font-size: 17px;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.6;
+}
