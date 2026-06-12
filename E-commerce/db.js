@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/e-commerce')
+
+mongoose.connect(process.env.MONGO_URI);
+
 const db = mongoose.connection;
 
 db.on('open', () => {
@@ -9,4 +11,5 @@ db.on('open', () => {
 db.on('error', (err) => {
     console.log(err);
 });
-module.exports= db;
+
+module.exports = db;

@@ -1,0 +1,30 @@
+/* Add this block to your existing Product.css — replaces the toolbar flex wrapping issue */
+
+/* Wrap sort + filter so they never orphan */
+.product-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Keep existing .product-toolbar but ensure it doesn't wrap mid-group */
+.product-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search takes all remaining space */
+.product-search-wrap {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 480px) {
+  .product-toolbar { flex-direction: column; align-items: stretch; }
+  .product-toolbar-controls { width: 100%; }
+  .product-search-wrap { min-width: unset; }
+  .product-sort { flex: 1; }
+}

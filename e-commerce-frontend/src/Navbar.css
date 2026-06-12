@@ -1,28 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #a697b8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  height: 60px;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: rgba(255,255,255,0.90);
+  font-family: inherit;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.nav-logo:hover { color: #fff; }
+
+.nav-logo-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #FF4500;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ── Right side ── */
 .nav-right {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
+.nav-desktop { display: flex; }
+.nav-mobile  { display: none; }
+
+/* ── Base nav button ── */
 .nav-button {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    color: #14376f;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s ease;
 }
 
 .nav-button:hover {
-    background-color: #dceeff;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.90);
+}
+
+/* ── Cart button ── */
+.nav-cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: #FF4500;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  line-height: 1;
+}
+
+/* ── User button ── */
+.nav-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,69,0,0.20);
+  border: 1px solid rgba(255,69,0,0.35);
+  color: #FF7733;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Logout ── */
+.nav-button--logout {
+  color: rgba(255,100,50,0.60);
+  margin-left: 2px;
+}
+
+.nav-button--logout:hover {
+  background: rgba(255,69,0,0.08);
+  color: rgba(255,130,70,0.95);
+}
+
+/* ── Hamburger ── */
+.nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px 7px;
+  transition: background 0.2s;
+}
+
+.nav-hamburger:hover { background: rgba(255,255,255,0.10); }
+
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 2px;
+}
+
+/* ── Mobile drawer overlay ── */
+.nav-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.60);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.nav-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #141414;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.22s ease;
+}
+
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+.nav-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.nav-drawer-logo {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+}
+
+.nav-drawer-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.nav-drawer-close:hover { color: rgba(255,255,255,0.85); }
+
+.nav-drawer-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-avatar--lg {
+  width: 38px;
+  height: 38px;
+  font-size: 15px;
+}
+
+.nav-drawer-username {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+.nav-drawer-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  gap: 2px;
+}
+
+.nav-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 10px;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+
+.nav-drawer-link:hover {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+}
+
+.nav-drawer-badge {
+  margin-left: auto;
+  background: #FF4500;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.nav-drawer-logout {
+  margin: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255,69,0,0.25);
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255,100,50,0.75);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.nav-drawer-logout:hover {
+  background: rgba(255,69,0,0.08);
+  color: rgba(255,130,70,0.95);
+  border-color: rgba(255,69,0,0.45);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .navbar { padding: 0 16px; }
+  .nav-desktop { display: none; }
+  .nav-mobile  { display: flex; }
 }

@@ -1,68 +1,374 @@
-.register-form-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #ffffff;
-  border: 1px solid #e1e1e1;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
+  background: #0D0D0D;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-.register-form-title {
-  margin-bottom: 1.5rem;
-  font-size: 1.75rem;
-  color: #1f2937;
+.register-page::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-1 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,69,0,0.20) 0%, rgba(255,69,0,0.06) 50%, transparent 70%);
+  top: -150px; left: -150px;
+  animation: drift1 13s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.orb-2 {
+  position: absolute;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,80,20,0.18) 0%, rgba(180,60,10,0.06) 50%, transparent 70%);
+  bottom: -150px; right: -150px;
+  animation: drift2 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(45px);
+}
+
+.orb-3 {
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,60,0,0.10) 0%, transparent 65%);
+  top: -60px; right: -60px;
+  animation: drift3 10s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(35px);
+}
+
+.orb-4 {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,60,0,0.10) 0%, transparent 65%);
+  bottom: -60px; left: -60px;
+  animation: drift4 11s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(35px);
+}
+
+@keyframes drift1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(35px, 45px) scale(1.07); }
+}
+@keyframes drift2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-35px, -45px) scale(1.07); }
+}
+@keyframes drift3 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-20px, 25px) scale(1.08); }
+}
+@keyframes drift4 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, -25px) scale(1.08); }
+}
+
+/* Card */
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,69,0,0.05) 40%,
+    rgba(200,168,130,0.03) 70%,
+    rgba(255,255,255,0.06) 100%
+  );
+  backdrop-filter: blur(48px) saturate(1.6);
+  -webkit-backdrop-filter: blur(48px) saturate(1.6);
+  padding: 38px 38px 36px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.11);
+  box-shadow:
+    0 0 0 1.5px rgba(255,69,0,0.16) inset,
+    0 0 70px rgba(255,69,0,0.09),
+    0 36px 72px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.register-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,69,0,0.8) 20%,
+    rgba(255,140,60,1) 40%,
+    rgba(200,168,130,1) 50%,
+    rgba(255,140,60,1) 60%,
+    rgba(255,69,0,0.8) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 14px rgba(255,69,0,0.55), 0 0 28px rgba(255,69,0,0.25);
+}
+
+.register-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%; width: 35%; height: 100%;
+  background: linear-gradient(105deg,
+    transparent 0%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Header */
+.register-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.register-logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #FF4500, #CC3300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 18px rgba(255,69,0,0.45), 0 4px 10px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+
+.register-logo-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.register-logo {
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FF4500 0%, #FF7733 40%, #C8A882 75%, #FF5520 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px rgba(255,69,0,0.60)) drop-shadow(0 0 5px rgba(255,69,0,0.35));
+  letter-spacing: -0.5px;
+}
+
+.register-subtitle {
   text-align: center;
+  color: rgba(200,168,130,0.50);
+  margin-bottom: 26px;
+  font-size: 13px;
+  letter-spacing: 0.1px;
 }
 
+/* Two-column grid for fields */
 .register-form {
   display: grid;
-  gap: 1.2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .register-form-group {
-  display: grid;
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-form-group.full-width {
+  grid-column: 1 / -1;
 }
 
 .register-form-label {
+  font-size: 11.5px;
   font-weight: 600;
-  color: #374151;
+  color: rgba(200,168,130,0.55);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Input wrapper */
+.register-input-wrap {
+  position: relative;
+}
+
+.register-input-wrap .input-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  opacity: 0.32;
+  pointer-events: none;
+  fill: none;
+  stroke: rgba(200,168,130,1);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .register-form-input {
   width: 100%;
-  padding: 0.95rem 1rem;
-  border: 1px solid #d1d5db;
+  padding: 12px 14px 12px 38px;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.05) 0%,
+    rgba(0,0,0,0.28) 100%
+  );
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px;
-  background: #f9fafb;
-  color: #111827;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.90);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.45);
+  outline: none;
+}
+
+.register-form-input::placeholder {
+  color: rgba(200,168,130,0.28);
+  font-size: 13px;
 }
 
 .register-form-input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  border-color: rgba(255,69,0,0.50);
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.07) 0%,
+    rgba(255,69,0,0.05) 100%
+  );
+  box-shadow:
+    inset 0 1px 4px rgba(0,0,0,0.4),
+    0 0 0 3px rgba(255,69,0,0.09),
+    0 0 20px rgba(255,69,0,0.08);
 }
 
+/* Password toggle */
+.pw-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.pw-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: rgba(200,168,130,0.35);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s;
+}
+
+.pw-toggle:hover svg {
+  stroke: rgba(200,168,130,0.70);
+}
+
+/* Submit button */
 .register-form-button {
-  width: 100%;
-  padding: 0.95rem 1rem;
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  padding: 13px;
   border: none;
   border-radius: 10px;
-  background-color: #2563eb;
-  color: #ffffff;
+  background: linear-gradient(135deg, #FF4500 0%, #E03A00 60%, #CC3300 100%);
+  color: #fff;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  letter-spacing: 0.4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 26px rgba(255,69,0,0.38),
+    0 0 52px rgba(255,69,0,0.15),
+    0 4px 14px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.2);
 }
+
+.register-form-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,0.20), transparent);
+  transition: left 0.5s ease;
+}
+
+.register-form-button:hover::before { left: 150%; }
 
 .register-form-button:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 38px rgba(255,69,0,0.52),
+    0 0 76px rgba(255,69,0,0.20),
+    0 8px 22px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
-.register-form-button:active {
-  transform: translateY(0);
+.register-form-button:active { transform: translateY(0); }
+
+/* Back to login link */
+.back-to-login {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.back-to-login a {
+  font-size: 13px;
+  color: rgba(200,168,130,0.40);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-to-login a span {
+  color: rgba(255,100,50,0.65);
+  font-weight: 600;
+}
+
+.back-to-login a:hover span {
+  color: rgba(255,130,70,0.95);
 }
