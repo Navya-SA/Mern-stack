@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'http://localhost:3000/wishlist';
+const BASE = `${import.meta.env.VITE_API_BASE_URL}/wishlist`;
 
 export const fetchWishlist = (userId) =>
   axios.get(`${BASE}/${userId}`).then((r) => r.data.wishlist);
